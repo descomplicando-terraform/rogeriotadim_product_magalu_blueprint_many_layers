@@ -16,10 +16,12 @@ variable "key_secret" {
   sensitive   = true
 }
 
-variable "name" {
-  description = "The name of the Subnet"
-}
-
-variable "cidr_block" {
-  description = "The CIDR block for the Subnet"
-}
+# variable "subnets" {
+#   type = map(object({
+#     name          = string
+#     description   = optional(string)
+#     subnetpool_id = string
+#     vpc_id        = string
+#     }
+#   ))
+# }
