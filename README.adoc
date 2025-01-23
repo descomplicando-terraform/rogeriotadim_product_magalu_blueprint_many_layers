@@ -1,2 +1,13 @@
-# rogeriotadim
+# Blueprint Many Layers MagaluCloud
+
 Projeto para o curso Descomplicando Terraform
+
+## Objetivo
+
+Facilitar a criação de uma pilha estrutural contento camada de apresentação, negócio e persistência pronta para hospedar uma aplicação de sistema de informação robusta e flexível.
+
+## Diagrama
+
+TODO
+
+
