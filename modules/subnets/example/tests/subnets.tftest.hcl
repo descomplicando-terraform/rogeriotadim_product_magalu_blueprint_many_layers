@@ -2,14 +2,14 @@
 
 variables {
   name = "vpc-test"
-  cidr_block = "192.168.143.0/24"
+  cidr_block = "192.168.0.0/24"
 }
 
-run "create vpc" {
+run "create_subnet" {
   command = apply
 
   assert {
-    condition     = module.vpc.vpc_name == var.name
+    condition     = module.subnets.subnet.name == var.name
     error_message = "invalid name"
   }
 
