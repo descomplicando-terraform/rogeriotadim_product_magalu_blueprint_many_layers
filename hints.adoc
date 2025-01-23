@@ -1,0 +1,5 @@
+[source,shell]
+----
+terraform -chdir=example init
+terraform -chdir=example test
+----
