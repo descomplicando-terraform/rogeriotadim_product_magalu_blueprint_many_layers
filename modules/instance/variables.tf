@@ -8,7 +8,7 @@ variable "availability_zone_list" {
   type        = list(string)
   default = [
     "br-se1-a",
-    "br-se1-a",
+    "br-se1-b",
     "br-se1-c"
   ]
 }

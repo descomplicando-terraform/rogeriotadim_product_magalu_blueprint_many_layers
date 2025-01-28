@@ -1,5 +1,5 @@
 run "create_one_instance" {
-  command = plan
+  command = apply
 
   assert {
     condition     = module.instances.instances[0].name != ""
