@@ -1,4 +1,8 @@
 run "create_one_instance" {
+variables {
+  qtd_instances = 1
+}
+
   command = apply
 
   assert {

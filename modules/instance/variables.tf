@@ -38,7 +38,7 @@ variable "qtd_instances" {
   type        = number
   default     = 1
   validation {
-    condition     = var.qtd_instances == 1 || var.qtd_instances == 2
-    error_message = "The quantity of instances must be 1 or 2"
+    condition     = var.qtd_instances >= 1 && var.qtd_instances <= 3
+    error_message = "The quantity of instances must be between 1 and 3"
   }
 }
