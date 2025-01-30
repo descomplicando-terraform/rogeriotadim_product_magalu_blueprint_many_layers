@@ -1,22 +1,27 @@
-variable "name" {
-  description = "The name of the VPC"
+variable "prefix" {
+  description = "The prefix of name of the instances"
   type        = string
 }
 
-variable "availability_zone" {
-  description = "The availability zone of the instances"
+variable "type" {
+  description = "Layer type"
   type        = string
-  default     = "br-se1-a"
+  validation {
+    condition     = var.type == "web" || var.type == "app"
+    error_message = "The layer type must be web or app"
+  }
 }
 
 variable "machine_type" {
   description = "The machine type of the instance"
   type        = string
+  default     = "BV1-1-10"
 }
 
 variable "image" {
   description = "The image of the instance"
   type        = string
+  default     = "cloud-ubuntu-24.04 LTS"
 }
 
 variable "ssh_key_name" {
@@ -33,8 +38,4 @@ variable "qtd_instances" {
   description = "The quantity of instances"
   type        = number
   default     = 1
-  validation {
-    condition     = var.qtd_instances >= 1 && var.qtd_instances <= 3
-    error_message = "The quantity of instances must be between 1 and 3"
-  }
 }
