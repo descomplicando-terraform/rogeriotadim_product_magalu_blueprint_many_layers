@@ -11,7 +11,7 @@ run "create_layer_with_one_instance" {
   command = apply
 
   assert {
-    condition     = module.layer.layer[var.instance_index].instances[var.instance_index].name == "${var.prefix}-${var.type}-${var.instance_index}"
+    condition     = module.layer.layer.instances[var.instance_index].name == "${var.prefix}-${var.type}-${var.instance_index}"
     error_message = "invalid name"
   }
 }
