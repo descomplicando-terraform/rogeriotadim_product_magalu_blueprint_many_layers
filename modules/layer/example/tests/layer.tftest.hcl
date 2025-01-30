@@ -3,18 +3,18 @@ variables {
   instance_index = 0
 }
 
-# run "create_layer_with_one_instance" {
-#   variables {
-#     qtd_instances = 1
-#   }
+run "create_layer_with_one_instance" {
+  variables {
+    qtd_instances = 1
+  }
 
-#   command = apply
+  command = apply
 
-#   assert {
-#     condition     = module.layer.layer[var.instance_index].instances[var.instance_index].name == "${var.prefix}-${var.type}-${var.instance_index}"
-#     error_message = "invalid name"
-#   }
-# }
+  assert {
+    condition     = module.layer.layer[var.instance_index].instances[var.instance_index].name == "${var.prefix}-${var.type}-${var.instance_index}"
+    error_message = "invalid name"
+  }
+}
 
 run "create_layer_with_three_instances" {
   command = apply
