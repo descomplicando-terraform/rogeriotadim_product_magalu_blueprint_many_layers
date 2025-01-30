@@ -13,6 +13,10 @@ variable "type" {
   description = "The type of the subnet pool"
   type        = string
   default     = "default"
+  validation {
+    condition     = var.type == "default" || var.type == "pip"
+    error_message = "The type must be default or pip"
+  }
 }
 
 variable "cidr" {
