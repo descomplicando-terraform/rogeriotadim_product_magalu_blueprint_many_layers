@@ -5,7 +5,7 @@ variables {
   cidr_block = "192.168.143.0/24"
 }
 
-run "create vpc" {
+run "create_vpc" {
   command = apply
 
   assert {
