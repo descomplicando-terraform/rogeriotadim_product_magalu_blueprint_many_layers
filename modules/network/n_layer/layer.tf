@@ -28,9 +28,13 @@ locals {
   #     vpc_id        = module.vpc.vpc_id
   #   }
   # }
+
+  qtd_subnets = (length(var.subnets) + (length(var.subnets) % 2)) / 2
+
+
   subnets = {
     for k, subnet in var.subnets :
-    cidrsubnet(module.subnetspool.subnetpool.cidr, 1, k) => {
+    cidrsubnet(module.subnetspool.subnetpool.cidr, local.qtd_subnets, k) => {
       name          = subnet.name
       description   = subnet.description
       subnetpool_id = module.subnetspool.subnetpool.id

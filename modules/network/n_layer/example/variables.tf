@@ -54,6 +54,10 @@ variable "subnets" {
     {
       name        = "subnet2"
       description = "subnet created by Terraform"
+    },
+    {
+      name        = "subnet3"
+      description = "subnet created by Terraform"
     }
   ]
 }
