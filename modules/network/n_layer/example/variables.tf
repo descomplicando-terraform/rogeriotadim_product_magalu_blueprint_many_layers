@@ -41,13 +41,21 @@ variable "subnetpool_type" {
 }
 
 variable "subnets" {
-  type = map(object({
-    name          = string
-    description   = optional(string)
-    subnetpool_id = string
-    vpc_id        = string
+  type = list(object({
+    name        = string
+    description = optional(string)
     }
   ))
+  default = [
+    {
+      name        = "subnet1"
+      description = "subnet created by Terraform"
+    },
+    {
+      name        = "subnet2"
+      description = "subnet created by Terraform"
+    }
+  ]
 }
 
 

@@ -16,4 +16,9 @@ run "layer" {
     condition     = module.layer.subnets.subnets[0].id != ""
     error_message = "invalid subnet"
   }
+
+  assert {
+    condition     = module.layer.subnets.subnets[1].id != ""
+    error_message = "invalid subnet"
+  }
 }

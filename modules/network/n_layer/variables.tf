@@ -38,7 +38,7 @@ variable "subnetpool_type" {
 }
 
 variable "subnets" {
-  type = map(object({
+  type = list(object({
     name        = string
     description = optional(string)
     }

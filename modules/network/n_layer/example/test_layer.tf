@@ -31,12 +31,7 @@ module "layer" {
   subnetpool_cidr = var.subnetpool_cidr
   subnetpool_type = var.subnetpool_type
   subnetpool_name = var.subnetpool_name
-  subnets = {
-    "172.16.43.0/24" : {
-      name        = "subnet-example"
-      description = "subnet example created by Terraform in order to test"
-    }
-  }
+  subnets         = var.subnets
 }
 
 output "layer" {

@@ -19,16 +19,30 @@ output "subnetspool" {
   value = module.subnetspool
 }
 
-module "subnets" {
-  source = "../subnets"
+locals {
+  # subnets = {
+  #   cidrsubnet(module.subnetspool.subnetpool.cidr, 1, 0) = {
+  #     name          = var.subnets[0].name
+  #     description   = var.subnets[0].description
+  #     subnetpool_id = module.subnetspool.subnetpool.id
+  #     vpc_id        = module.vpc.vpc_id
+  #   }
+  # }
   subnets = {
-    cidrsubnet(module.subnetspool.subnetpool, 1, 0) = {
-      name          = var.subnets.name
-      description   = var.subnets.description
+    for k, subnet in var.subnets :
+    cidrsubnet(module.subnetspool.subnetpool.cidr, 1, k) => {
+      name          = subnet.name
+      description   = subnet.description
       subnetpool_id = module.subnetspool.subnetpool.id
       vpc_id        = module.vpc.vpc_id
-    cidr_block = var.subnets.cidr_block }
+    }
   }
+}
+
+module "subnets" {
+  depends_on = [module.subnetspool]
+  source     = "../subnets"
+  subnets    = local.subnets
 }
 
 output "subnets" {
